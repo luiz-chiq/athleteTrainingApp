@@ -24,7 +24,7 @@ class TrainingDayRtDbFbController(private val mainActivity: MainActivity) {
             mainActivity.updateTrainingDayListHandler.apply {
                 sendMessage(Message().apply {
                     data.putParcelableArray(
-                        "CONTACT_ARRAY",
+                        "TRAINING_ARRAY",
                         returnList.toTypedArray()
                     )
                 })
