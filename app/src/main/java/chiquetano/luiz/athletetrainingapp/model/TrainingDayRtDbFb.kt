@@ -10,7 +10,7 @@ import com.google.firebase.database.getValue
 
 class TrainingDayRtDbFb: TrainingDayDao {
     companion object {
-        private const val TRAINING_DAY_LIST_ROOT_NODE = "trainingApp"
+        private const val TRAINING_DAY_LIST_ROOT_NODE = "training"
     }
 
     private val trainingDayRtDbFbReference = Firebase.database
