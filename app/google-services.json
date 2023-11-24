@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "665078991820",
+    "project_id": "training-82884",
+    "storage_bucket": "training-82884.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665078991820:android:08974bbe3762fbdeaaab69",
+        "android_client_info": {
+          "package_name": "chiquetano.luiz.athletetrainingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "removed_key"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
