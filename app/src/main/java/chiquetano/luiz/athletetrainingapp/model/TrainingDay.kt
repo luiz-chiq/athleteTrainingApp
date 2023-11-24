@@ -18,7 +18,9 @@ data class TrainingDay(
     @NonNull
     var age: Int = 0,
     @NonNull
-    var gender: WeekDay = WeekDay.MONDAY,
+    var gender: Gender = Gender.UNKNOWN,
+    @NonNull
+    val weekDay: WeekDay = WeekDay.MONDAY,
     @NonNull
     var description: String = ""
 
