@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/addContactMi"
+        android:id="@+id/addTrainingMi"
         android:icon="@drawable/ic_add"
         android:title="Add training day"
         app:showAsAction="ifRoom" />
