@@ -4,11 +4,11 @@ package chiquetano.luiz.athletetrainingapp.controller
 import android.os.Message
 import chiquetano.luiz.athletetrainingapp.model.TrainingDay
 import chiquetano.luiz.athletetrainingapp.model.TrainingDayDao
-import chiquetano.luiz.athletetrainingapp.model.TrainingDayRtDbFb
+import chiquetano.luiz.athletetrainingapp.model.TrainingDayDaoRtDbFb
 import chiquetano.luiz.athletetrainingapp.view.MainActivity
 
 class TrainingDayController(private val mainActivity: MainActivity) {
-    private val TrainingDayDaoImpl: TrainingDayDao = TrainingDayRtDbFb()
+    private val TrainingDayDaoImpl: TrainingDayDao = TrainingDayDaoRtDbFb()
 
     fun insertTrainingDay(trainingDay: TrainingDay) {
         Thread {
