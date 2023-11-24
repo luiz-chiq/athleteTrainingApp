@@ -1,31 +1,26 @@
 package chiquetano.luiz.athletetrainingapp.model
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.Firebase
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 import com.google.firebase.database.getValue
 
-class TrainingDayRtDbFb: TrainingDayDao {
-//    companion object {
-//        private const val TRAINING_DAY_LIST_ROOT_NODE = "training"
-//    }
-//
-//    private val trainingDayRtDbFbReference = Firebase.database
-//        .getReference(TRAINING_DAY_LIST_ROOT_NODE)
+class TrainingDayDaoRtDbFb: TrainingDayDao {
+    companion object {
+        private const val TRAINING_DAY_LIST_ROOT_NODE = "training"
+    }
 
-    private var firebaseDatabase = FirebaseDatabase.getInstance("https://training-d6b90-default-rtdb.firebaseio.com/");
-    private var databaseReference = firebaseDatabase.getReference("training");
+    private val trainingDayRtDbFbReference = Firebase.database
+        .getReference(TRAINING_DAY_LIST_ROOT_NODE)
 
     // Simula uma consulta ao Realtime Database
     private val trainingDayList: MutableList<TrainingDay> = mutableListOf()
 
     init {
-        databaseReference.addChildEventListener(object: ChildEventListener {
+        trainingDayRtDbFbReference.addChildEventListener(object: ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 val trainingDay: TrainingDay? = snapshot.getValue<TrainingDay>()
 
@@ -64,7 +59,7 @@ class TrainingDayRtDbFb: TrainingDayDao {
             }
         })
 
-        databaseReference.addListenerForSingleValueEvent(object: ValueEventListener {
+        trainingDayRtDbFbReference.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val trainingDayMap = snapshot.getValue<Map<String, TrainingDay>>()
 
@@ -97,10 +92,10 @@ class TrainingDayRtDbFb: TrainingDayDao {
     }
 
     override fun deleteTrainingDay(id: Int): Int {
-        databaseReference.child(id.toString()).removeValue()
+        trainingDayRtDbFbReference.child(id.toString()).removeValue()
         return 1
     }
 
     private fun createOrUpdateTrainingDay(trainingDay: TrainingDay) =
-        databaseReference.child(trainingDay.id.toString()).setValue(trainingDay)
+        trainingDayRtDbFbReference.child(trainingDay.id.toString()).setValue(trainingDay)
 }
